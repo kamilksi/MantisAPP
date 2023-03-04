@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mantis_app/injectable/injectable.dart';
+import 'package:mantis_app/presentation/utils/theme/app_styles.dart';
 import 'presentation/utils/router/app_router.dart';
 
 void main() async {
@@ -20,8 +21,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       builder: ((context, child) {
         return MaterialApp.router(
+          color: Styles.backgroundColor,
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(useMaterial3: true),
+          theme: ThemeData(
+            useMaterial3: true,
+          ),
           themeMode: ThemeMode.light,
           localizationsDelegates: const [],
           routerDelegate: _appRouter.delegate(),
