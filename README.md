@@ -4,7 +4,7 @@
 
 <h2>Description</h2>
 
-<h3>This project is build with my own API.</h3>
+<h3>This project was built using my own API.</h3>
 
 <h3>There are thousands of species of praying mantises in the world. 
 </br>
