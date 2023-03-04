@@ -1,17 +1,28 @@
-# mantis_app
+<h1 align = "center"> Mantis App </h1>
 
-A new Flutter project.
+![alt text](https://raw.githubusercontent.com/kamilksi/MantisAPP/develop/lib/assets/icon/icon.png?raw=true?width=100)
 
-## Getting Started
+<h2>Description</h2>
 
-This project is a starting point for a Flutter application.
+<h3>This project is build with my own API.</h3>
 
-A few resources to get you started if this is your first Flutter project:
+<h3>There are thousands of species of praying mantises in the world. I created this application to provide information about the most popular ones.</h3>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# MantisAPP
+## How to build
+
+<li>If you don't have Flutter SDK installed, please visit official Flutter site.</li>
+<li>Fetch latest source code from develop branch.</li>
+
+
+```
+git@github.com:kamilksi/MantisAPP.git
+```
+
+<li>Run the app with Android Studio or VS Code.</li>
+<li>In terminal run:</li>
+
+```
+flutter pub get
+flutter run
+```
