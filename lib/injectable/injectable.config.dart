@@ -13,7 +13,7 @@ import '../data/repository/mantis_repository_impl.dart' as _i6;
 import '../domain/data_source/mantis_data_source.dart' as _i4;
 import '../domain/repositories/mantis_repository.dart' as _i5;
 import '../domain/use_cases/get_mantis_use_case.dart' as _i7;
-import '../presentation/pages/cubit/home_cubit.dart' as _i8;
+import '../presentation/pages/home/cubit/home_cubit.dart' as _i8;
 import 'modules/dio_module.dart' as _i9;
 import 'modules/mantis_data_source_module.dart'
     as _i10; // ignore_for_file: unnecessary_lambdas

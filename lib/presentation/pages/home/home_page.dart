@@ -3,9 +3,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mantis_app/injectable/injectable.dart';
-import 'package:mantis_app/presentation/pages/cubit/home_cubit.dart';
-import 'package:mantis_app/presentation/pages/cubit/home_state.dart';
-import 'package:mantis_app/presentation/pages/widgets/home_page_body.dart';
+import 'package:mantis_app/presentation/pages/home/cubit/home_cubit.dart';
+import 'package:mantis_app/presentation/pages/home/widgets/home_page_body.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

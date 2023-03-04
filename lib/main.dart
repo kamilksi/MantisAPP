@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mantis_app/injectable/injectable.dart';
-
-import 'presentation/pages/home_page.dart';
 import 'presentation/utils/router/app_router.dart';
 
 void main() async {
