@@ -39,6 +39,9 @@ dependencies:
   auto_size_text: ^3.0.0
   page_transition: ^2.0.9
   percent_indicator: ^4.2.2
+  av_utils:
+    git: 
+      url: "git@github.com:kamilksi/av_utils.git"
 
 dev_dependencies:
   flutter_test:
