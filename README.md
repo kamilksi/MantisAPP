@@ -6,7 +6,9 @@
 
 <h3>This project is build with my own API.</h3>
 
-<h3>There are thousands of species of praying mantises in the world. I created this application to provide information about the most popular ones.</h3>
+<h3>There are thousands of species of praying mantises in the world. 
+</br>
+I created this application to provide information about the most popular ones.</h3>
 
 
 ## How to build
