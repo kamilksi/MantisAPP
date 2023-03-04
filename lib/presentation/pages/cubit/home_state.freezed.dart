@@ -20,24 +20,24 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(List<Mantis> listMantis) success,
+    required TResult Function(Failure error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(List<Mantis> listMantis)? success,
+    TResult? Function(Failure error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(List<Mantis> listMantis)? success,
+    TResult Function(Failure error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,8 +124,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(List<Mantis> listMantis) success,
+    required TResult Function(Failure error) error,
   }) {
     return initial();
   }
@@ -135,8 +135,8 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(List<Mantis> listMantis)? success,
+    TResult? Function(Failure error)? error,
   }) {
     return initial?.call();
   }
@@ -146,8 +146,8 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(List<Mantis> listMantis)? success,
+    TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -237,8 +237,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(List<Mantis> listMantis) success,
+    required TResult Function(Failure error) error,
   }) {
     return loading();
   }
@@ -248,8 +248,8 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(List<Mantis> listMantis)? success,
+    TResult? Function(Failure error)? error,
   }) {
     return loading?.call();
   }
@@ -259,8 +259,8 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(List<Mantis> listMantis)? success,
+    TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -316,6 +316,8 @@ abstract class _$$_SuccessCopyWith<$Res> {
   factory _$$_SuccessCopyWith(
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Mantis> listMantis});
 }
 
 /// @nodoc
@@ -324,36 +326,68 @@ class __$$_SuccessCopyWithImpl<$Res>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? listMantis = null,
+  }) {
+    return _then(_$_Success(
+      listMantis: null == listMantis
+          ? _value._listMantis
+          : listMantis // ignore: cast_nullable_to_non_nullable
+              as List<Mantis>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success();
+  const _$_Success({required final List<Mantis> listMantis})
+      : _listMantis = listMantis;
+
+  final List<Mantis> _listMantis;
+  @override
+  List<Mantis> get listMantis {
+    if (_listMantis is EqualUnmodifiableListView) return _listMantis;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listMantis);
+  }
 
   @override
   String toString() {
-    return 'HomeState.success()';
+    return 'HomeState.success(listMantis: $listMantis)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType &&
+            other is _$_Success &&
+            const DeepCollectionEquality()
+                .equals(other._listMantis, _listMantis));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_listMantis));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(List<Mantis> listMantis) success,
+    required TResult Function(Failure error) error,
   }) {
-    return success();
+    return success(listMantis);
   }
 
   @override
@@ -361,10 +395,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(List<Mantis> listMantis)? success,
+    TResult? Function(Failure error)? error,
   }) {
-    return success?.call();
+    return success?.call(listMantis);
   }
 
   @override
@@ -372,12 +406,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(List<Mantis> listMantis)? success,
+    TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(listMantis);
     }
     return orElse();
   }
@@ -421,13 +455,22 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements HomeState {
-  const factory _Success() = _$_Success;
+  const factory _Success({required final List<Mantis> listMantis}) = _$_Success;
+
+  List<Mantis> get listMantis;
+  @JsonKey(ignore: true)
+  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Failure error});
+
+  $FailureCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -436,36 +479,68 @@ class __$$_ErrorCopyWithImpl<$Res>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$_Error(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FailureCopyWith<$Res> get error {
+    return $FailureCopyWith<$Res>(_value.error, (value) {
+      return _then(_value.copyWith(error: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_Error implements _Error {
-  const _$_Error();
+  const _$_Error(this.error);
+
+  @override
+  final Failure error;
 
   @override
   String toString() {
-    return 'HomeState.error()';
+    return 'HomeState.error(error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Error);
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
-    required TResult Function() error,
+    required TResult Function(List<Mantis> listMantis) success,
+    required TResult Function(Failure error) error,
   }) {
-    return error();
+    return error(this.error);
   }
 
   @override
@@ -473,10 +548,10 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
-    TResult? Function()? error,
+    TResult? Function(List<Mantis> listMantis)? success,
+    TResult? Function(Failure error)? error,
   }) {
-    return error?.call();
+    return error?.call(this.error);
   }
 
   @override
@@ -484,12 +559,12 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
-    TResult Function()? error,
+    TResult Function(List<Mantis> listMantis)? success,
+    TResult Function(Failure error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(this.error);
     }
     return orElse();
   }
@@ -533,5 +608,10 @@ class _$_Error implements _Error {
 }
 
 abstract class _Error implements HomeState {
-  const factory _Error() = _$_Error;
+  const factory _Error(final Failure error) = _$_Error;
+
+  Failure get error;
+  @JsonKey(ignore: true)
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }
