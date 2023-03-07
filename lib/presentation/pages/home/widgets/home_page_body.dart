@@ -10,7 +10,7 @@ import 'package:mantis_app/presentation/pages/home/widgets/home_card.dart';
 import 'package:mantis_app/presentation/utils/router/app_router.dart';
 
 class HomePageBody extends StatelessWidget {
-  const HomePageBody({super.key});
+  HomePageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
