@@ -13,7 +13,6 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
-import 'package:flutter/src/widgets/framework.dart' as _i8;
 import 'package:mantis_app/presentation/pages/blog/blog_page.dart' as _i5;
 import 'package:mantis_app/presentation/pages/details/details_page.dart' as _i3;
 import 'package:mantis_app/presentation/pages/home/home_page.dart' as _i4;
@@ -105,7 +104,7 @@ class AppRouter extends _i6.RootStackRouter {
 /// generated route for
 /// [_i1.SplashPage]
 class SplashRoute extends _i6.PageRouteInfo<SplashRouteArgs> {
-  SplashRoute({_i8.Key? key})
+  SplashRoute({_i7.Key? key})
       : super(
           SplashRoute.name,
           path: '/',
@@ -118,7 +117,7 @@ class SplashRoute extends _i6.PageRouteInfo<SplashRouteArgs> {
 class SplashRouteArgs {
   const SplashRouteArgs({this.key});
 
-  final _i8.Key? key;
+  final _i7.Key? key;
 
   @override
   String toString() {
@@ -143,7 +142,7 @@ class MainRoute extends _i6.PageRouteInfo<void> {
 /// [_i3.DetailsPage]
 class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
-    _i8.Key? key,
+    _i7.Key? key,
     required String name,
     required String genre,
     required String appearance,
@@ -178,7 +177,7 @@ class DetailsRouteArgs {
     required this.image,
   });
 
-  final _i8.Key? key;
+  final _i7.Key? key;
 
   final String name;
 
