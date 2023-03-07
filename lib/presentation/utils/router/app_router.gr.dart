@@ -11,28 +11,41 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:flutter/material.dart' as _i4;
-import 'package:mantis_app/presentation/pages/details/details_page.dart' as _i2;
-import 'package:mantis_app/presentation/pages/home/home_page.dart' as _i1;
+import 'package:auto_route/auto_route.dart' as _i6;
+import 'package:flutter/material.dart' as _i7;
+import 'package:flutter/src/widgets/framework.dart' as _i8;
+import 'package:mantis_app/presentation/pages/blog/blog_page.dart' as _i5;
+import 'package:mantis_app/presentation/pages/details/details_page.dart' as _i3;
+import 'package:mantis_app/presentation/pages/home/home_page.dart' as _i4;
+import 'package:mantis_app/presentation/pages/main/main_page.dart' as _i2;
+import 'package:mantis_app/presentation/pages/splash_page/splash_page.dart'
+    as _i1;
 
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
+class AppRouter extends _i6.RootStackRouter {
+  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+  final Map<String, _i6.PageFactory> pagesMap = {
+    SplashRoute.name: (routeData) {
+      final args = routeData.argsAs<SplashRouteArgs>(
+          orElse: () => const SplashRouteArgs());
+      return _i6.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomePage(),
+        child: _i1.SplashPage(key: args.key),
+      );
+    },
+    MainRoute.name: (routeData) {
+      return _i6.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.MainPage(),
       );
     },
     DetailsRoute.name: (routeData) {
       final args = routeData.argsAs<DetailsRouteArgs>();
-      return _i3.CustomPage<dynamic>(
+      return _i6.CustomPage<dynamic>(
         routeData: routeData,
-        child: _i2.DetailsPage(
+        child: _i3.DetailsPage(
           key: args.key,
           name: args.name,
           genre: args.genre,
@@ -41,20 +54,48 @@ class AppRouter extends _i3.RootStackRouter {
           enviroment: args.enviroment,
           image: args.image,
         ),
-        transitionsBuilder: _i3.TransitionsBuilders.fadeIn,
+        transitionsBuilder: _i6.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
+      );
+    },
+    HomeRoute.name: (routeData) {
+      return _i6.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.HomePage(),
+      );
+    },
+    BlogRoute.name: (routeData) {
+      return _i6.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.BlogPage(),
       );
     },
   };
 
   @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(
-          HomeRoute.name,
+  List<_i6.RouteConfig> get routes => [
+        _i6.RouteConfig(
+          SplashRoute.name,
           path: '/',
         ),
-        _i3.RouteConfig(
+        _i6.RouteConfig(
+          MainRoute.name,
+          path: '/main-page',
+          children: [
+            _i6.RouteConfig(
+              HomeRoute.name,
+              path: 'home-page',
+              parent: MainRoute.name,
+            ),
+            _i6.RouteConfig(
+              BlogRoute.name,
+              path: 'blog-page',
+              parent: MainRoute.name,
+            ),
+          ],
+        ),
+        _i6.RouteConfig(
           DetailsRoute.name,
           path: '/details-page',
         ),
@@ -62,22 +103,47 @@ class AppRouter extends _i3.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.HomePage]
-class HomeRoute extends _i3.PageRouteInfo<void> {
-  const HomeRoute()
+/// [_i1.SplashPage]
+class SplashRoute extends _i6.PageRouteInfo<SplashRouteArgs> {
+  SplashRoute({_i8.Key? key})
       : super(
-          HomeRoute.name,
+          SplashRoute.name,
           path: '/',
+          args: SplashRouteArgs(key: key),
         );
 
-  static const String name = 'HomeRoute';
+  static const String name = 'SplashRoute';
+}
+
+class SplashRouteArgs {
+  const SplashRouteArgs({this.key});
+
+  final _i8.Key? key;
+
+  @override
+  String toString() {
+    return 'SplashRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
-/// [_i2.DetailsPage]
-class DetailsRoute extends _i3.PageRouteInfo<DetailsRouteArgs> {
+/// [_i2.MainPage]
+class MainRoute extends _i6.PageRouteInfo<void> {
+  const MainRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          MainRoute.name,
+          path: '/main-page',
+          initialChildren: children,
+        );
+
+  static const String name = 'MainRoute';
+}
+
+/// generated route for
+/// [_i3.DetailsPage]
+class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
-    _i4.Key? key,
+    _i8.Key? key,
     required String name,
     required String genre,
     required String appearance,
@@ -112,7 +178,7 @@ class DetailsRouteArgs {
     required this.image,
   });
 
-  final _i4.Key? key;
+  final _i8.Key? key;
 
   final String name;
 
@@ -130,4 +196,28 @@ class DetailsRouteArgs {
   String toString() {
     return 'DetailsRouteArgs{key: $key, name: $name, genre: $genre, appearance: $appearance, behavior: $behavior, enviroment: $enviroment, image: $image}';
   }
+}
+
+/// generated route for
+/// [_i4.HomePage]
+class HomeRoute extends _i6.PageRouteInfo<void> {
+  const HomeRoute()
+      : super(
+          HomeRoute.name,
+          path: 'home-page',
+        );
+
+  static const String name = 'HomeRoute';
+}
+
+/// generated route for
+/// [_i5.BlogPage]
+class BlogRoute extends _i6.PageRouteInfo<void> {
+  const BlogRoute()
+      : super(
+          BlogRoute.name,
+          path: 'blog-page',
+        );
+
+  static const String name = 'BlogRoute';
 }
