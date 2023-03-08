@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mantis_app/domain/entities/response/blog/blog_entity.dart';
 import 'package:mantis_app/presentation/pages/blog/cubit/blog_cubit.dart';
 import 'package:mantis_app/presentation/pages/blog/cubit/blog_state.dart';
 import 'package:mantis_app/presentation/pages/blog/widgets/blog_tile.dart';
@@ -18,12 +19,21 @@ class BlogPageBody extends StatelessWidget {
     return BlocBuilder<BlogCubit, BlogState>(
       builder: ((context, state) => state.map(
           loading: (state) => AVProgressIndicator(color: Colors.black),
-          success: (state) => BlogTile(
-              userName: "userName",
-              imageUrl: imageUrl,
-              description: "description",
-              isLike: false),
+          success: (state) => _buildBody(context, state.posts),
           error: (state) => Center(child: Text("error")))),
     );
   }
 }
+
+Widget _buildBody(BuildContext context, List<BlogEntity> model) =>
+    ListView.separated(
+      itemCount: model.length,
+      itemBuilder: ((context, index) => BlogTile(
+          userName: model[index].name,
+          imageUrl: imageUrl,
+          description: model[index].description,
+          isLike: false)),
+      separatorBuilder: (context, index) => Divider(
+        color: Colors.grey,
+      ),
+    );
