@@ -19,12 +19,11 @@ class BlogTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 15, bottom: 5, top: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(width: 16),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +57,7 @@ class BlogTile extends StatelessWidget {
                         image: NetworkImage(imageUrl),
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(description),
