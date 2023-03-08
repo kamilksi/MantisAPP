@@ -17,6 +17,10 @@ class BlogPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
         backgroundColor: Colors.lightGreen,
       ),
       body: BlocProvider(
